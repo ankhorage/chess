@@ -3,6 +3,7 @@ import { test } from 'node:test';
 
 import type { Cell, Color, PieceKind, Template } from '../../../types/chess';
 import { createPresets } from '../../templates/domain/createPresets';
+import { createChoiceCoinSetup, lockChoiceCoins } from './choiceCoinSetup';
 import { createGameState } from './createGameState';
 import { getLegalMoves } from './getLegalMoves';
 import { isKingInCheck } from './isKingInCheck';
@@ -11,6 +12,17 @@ import { readOutcome } from './readOutcome';
 import { resignGame } from './resignGame';
 
 const choices: Record<Color, Record<string, PieceKind>> = { w: {}, b: {} };
+const createLockedGameState = (
+  template: Template,
+  selections: Record<Color, Record<string, PieceKind>> = choices,
+) =>
+  createGameState(
+    lockChoiceCoins(
+      lockChoiceCoins(createChoiceCoinSetup(template), 'w', selections.w),
+      'b',
+      selections.b,
+    ),
+  );
 const empty = (width = 8, height = 8): Template => ({
   id: 'free',
   name: 'Free',
@@ -34,7 +46,7 @@ const change = (
 };
 
 void test('standard chess has 20 legal opening moves and normal alternating turns', () => {
-  const state = createGameState(createPresets()[0], choices);
+  const state = createLockedGameState(createPresets()[0]);
   assert.equal(getLegalMoves(state).length, 20);
   const after = playMove(state, { from: { x: 4, y: 6 }, to: { x: 4, y: 4 } });
   assert.equal(after.turn, 'b');
@@ -52,11 +64,39 @@ void test('10×13 coins are independent, fully resolved and immutable', () => {
     w: Object.fromEntries(columns.map((x) => [`${x}:12`, x % 2 ? 'B' : 'N'])),
     b: Object.fromEntries(columns.map((x) => [`${x}:0`, x % 2 ? 'B' : 'N'])),
   };
-  const state = createGameState(preset, resolved);
+  const state = createLockedGameState(preset, resolved);
   assert.equal(state.board[12]?.[1]?.kind, 'B');
   assert.equal(state.board[0]?.[2]?.kind, 'N');
   assert.equal(preset.cells[12]?.[1]?.kind, 'coin');
-  assert.throws(() => createGameState(preset, choices), /Unresolved/);
+  assert.throws(() => createLockedGameState(preset, choices), /invalid/);
+});
+
+void test('Free Choice Coins offer every piece kind and resolve locked selections', () => {
+  const preset = createPresets().find(({ id }) => id === 'free-choice-10x13');
+  assert.ok(preset);
+  const coins = preset.cells.flat().filter((cell) => cell?.kind === 'coin');
+  assert.equal(coins.length, 12);
+  assert.ok(coins.every((coin) => coin.options.join(',') === 'P,N,B,R,Q,K'));
+  const state = createLockedGameState(preset, {
+    w: {
+      '1:12': 'P',
+      '2:12': 'N',
+      '3:12': 'B',
+      '6:12': 'R',
+      '7:12': 'Q',
+      '8:12': 'K',
+    },
+    b: {
+      '1:0': 'K',
+      '2:0': 'Q',
+      '3:0': 'R',
+      '6:0': 'B',
+      '7:0': 'N',
+      '8:0': 'P',
+    },
+  });
+  assert.equal(state.board[12]?.[1]?.kind, 'P');
+  assert.equal(state.board[0]?.[1]?.kind, 'K');
 });
 
 void test('kingless side plays but only an existing king can be mated', () => {
@@ -64,14 +104,16 @@ void test('kingless side plays but only an existing king can be mated', () => {
     { x: 1, y: 7, color: 'w', kind: 'R' },
     { x: 4, y: 0, color: 'b', kind: 'K' },
   ]);
-  const state = createGameState(template, choices);
+  const state = createLockedGameState(template);
   assert.equal(isKingInCheck(state.board, 'w'), false);
   assert.ok(getLegalMoves(state).length > 0);
   assert.equal(readOutcome(state), null);
 });
 
 void test('custom K+B+N versus K is a valid configurable training setup', () => {
-  const state = createGameState(createPresets()[2], choices);
+  const preset = createPresets().find(({ id }) => id === 'endgame');
+  assert.ok(preset);
+  const state = createLockedGameState(preset);
   assert.equal(state.board.flat().filter(Boolean).length, 4);
   assert.ok(getLegalMoves(state).length > 0);
   assert.equal(readOutcome(state), null);
@@ -87,7 +129,7 @@ void test('checkmate and stalemate are distinguished', () => {
     ],
     'b',
   );
-  assert.deepEqual(readOutcome(createGameState(mate, choices)), {
+  assert.deepEqual(readOutcome(createLockedGameState(mate)), {
     winner: 'w',
     reason: 'checkmate',
   });
@@ -100,14 +142,14 @@ void test('checkmate and stalemate are distinguished', () => {
     ],
     'b',
   );
-  assert.deepEqual(readOutcome(createGameState(stale, choices)), {
+  assert.deepEqual(readOutcome(createLockedGameState(stale)), {
     winner: null,
     reason: 'stalemate',
   });
 });
 
 void test('en passant captures only immediately after a double pawn move', () => {
-  const state = createGameState(
+  const state = createLockedGameState(
     change(
       empty(),
       [
@@ -118,7 +160,6 @@ void test('en passant captures only immediately after a double pawn move', () =>
       ],
       'b',
     ),
-    choices,
   );
   const pushed = playMove(state, { from: { x: 3, y: 1 }, to: { x: 3, y: 3 } });
   const captured = playMove(pushed, { from: { x: 4, y: 3 }, to: { x: 3, y: 2 } });
@@ -127,13 +168,12 @@ void test('en passant captures only immediately after a double pawn move', () =>
 });
 
 void test('promotion can choose each legal promotion piece and rejects omissions', () => {
-  const state = createGameState(
+  const state = createLockedGameState(
     change(empty(), [
       { x: 4, y: 7, color: 'w', kind: 'K' },
       { x: 4, y: 0, color: 'b', kind: 'K' },
       { x: 0, y: 1, color: 'w', kind: 'P' },
     ]),
-    choices,
   );
   assert.equal(getLegalMoves(state, { x: 0, y: 1 }).length, 4);
   assert.throws(() => playMove(state, { from: { x: 0, y: 1 }, to: { x: 0, y: 0 } }), /Illegal/);
@@ -145,20 +185,19 @@ void test('promotion can choose each legal promotion piece and rejects omissions
 });
 
 void test('castling checks transit attacks and revoked rook rights', () => {
-  const state = createGameState(
+  const state = createLockedGameState(
     change(empty(), [
       { x: 4, y: 7, color: 'w', kind: 'K' },
       { x: 0, y: 7, color: 'w', kind: 'R' },
       { x: 7, y: 7, color: 'w', kind: 'R' },
       { x: 4, y: 0, color: 'b', kind: 'K' },
     ]),
-    choices,
   );
   assert.equal(getLegalMoves(state, { x: 4, y: 7 }).filter((move) => move.castle).length, 2);
   const castled = playMove(state, { from: { x: 4, y: 7 }, to: { x: 6, y: 7 } });
   assert.equal(castled.board[7]?.[5]?.kind, 'R');
   assert.equal(castled.castling.w.K, false);
-  const blocked = createGameState(
+  const blocked = createLockedGameState(
     change(empty(), [
       { x: 4, y: 7, color: 'w', kind: 'K' },
       { x: 0, y: 7, color: 'w', kind: 'R' },
@@ -166,27 +205,25 @@ void test('castling checks transit attacks and revoked rook rights', () => {
       { x: 4, y: 0, color: 'b', kind: 'K' },
       { x: 5, y: 0, color: 'b', kind: 'R' },
     ]),
-    choices,
   );
   assert.equal(getLegalMoves(blocked, { x: 4, y: 7 }).filter((move) => move.castle).length, 1);
 });
 
 void test('no player can capture a king or leave their own king attacked', () => {
-  const state = createGameState(
+  const state = createLockedGameState(
     change(empty(), [
       { x: 4, y: 7, color: 'w', kind: 'K' },
       { x: 4, y: 6, color: 'w', kind: 'R' },
       { x: 4, y: 0, color: 'b', kind: 'R' },
       { x: 7, y: 0, color: 'b', kind: 'K' },
     ]),
-    choices,
   );
   assert.ok(getLegalMoves(state, { x: 4, y: 6 }).every((move) => move.to.x === 4));
   assert.throws(() => playMove(state, { from: { x: 4, y: 6 }, to: { x: 3, y: 6 } }), /Illegal/);
 });
 
 void test('resignation ends the game for the opposing player', () => {
-  const state = createGameState(createPresets()[0], choices);
+  const state = createLockedGameState(createPresets()[0]);
   const resigned = resignGame(state, 'w');
   assert.deepEqual(readOutcome(resigned), { winner: 'b', reason: 'resignation' });
   assert.throws(

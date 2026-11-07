@@ -1,20 +1,17 @@
 import type {
   Board,
   Castling,
+  ChoiceCoinSetup,
   Color,
   GameState,
   Piece,
-  PieceKind,
-  Template,
 } from '../../../types/chess';
 import { stateSignature } from './stateSignature';
 
 /*** Resolve all choice coins into immutable starting pieces once both players are ready. */
-export function createGameState(
-  template: Template,
-  choices: Readonly<Record<Color, Readonly<Record<string, PieceKind>>>>,
-  randomTurn: Color = 'w',
-): GameState {
+export function createGameState(setup: ChoiceCoinSetup, randomTurn: Color = 'w'): GameState {
+  if (!setup.locked.w || !setup.locked.b) throw new Error('Choice coins must be locked');
+  const { template, choices } = setup;
   const board: Board = template.cells.map((row, y) =>
     row.map((cell, x): Piece | null => {
       if (!cell) return null;

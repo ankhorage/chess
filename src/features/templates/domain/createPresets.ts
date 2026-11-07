@@ -1,7 +1,7 @@
 import type { Cell, Color, PieceKind, Template } from '../../../types/chess';
 
-/*** Supply standard, configurable 10×13 choice-coins and a teaching endgame. */
-export function createPresets(): readonly [Template, Template, Template] {
+/*** Supply standard, Choice Coin, Free Choice Coin, and teaching endgame presets. */
+export function createPresets(): readonly [Template, Template, Template, Template] {
   const standard = createRanked('standard', 'Klassisch 8 × 8', 8, 8, [
     'R',
     'N',
@@ -24,6 +24,14 @@ export function createPresets(): readonly [Template, Template, Template] {
     'C',
     'R',
   ]);
+  const free = createRanked(
+    'free-choice-10x13',
+    'Free Choice Coins 10 × 13',
+    10,
+    13,
+    ['R', 'C', 'C', 'C', 'Q', 'K', 'C', 'C', 'C', 'R'],
+    ['P', 'N', 'B', 'R', 'Q', 'K'],
+  );
   const endgame: Cell[][] = Array.from({ length: 8 }, () => Array<Cell>(8).fill(null));
   endgame[0]![4] = { color: 'b', kind: 'K' };
   endgame[7]![4] = { color: 'w', kind: 'K' };
@@ -32,6 +40,7 @@ export function createPresets(): readonly [Template, Template, Template] {
   return [
     standard,
     wide,
+    free,
     {
       id: 'endgame',
       name: 'Matttraining K + B + N',
@@ -43,13 +52,14 @@ export function createPresets(): readonly [Template, Template, Template] {
   ];
 }
 
-/*** Create symmetrical home ranks with fixed pawns and optional Knight/Bishop coins. */
+/*** Create symmetrical home ranks with fixed pawns and configurable Choice Coin options. */
 function createRanked(
   id: string,
   name: string,
   width: number,
   height: number,
   back: readonly ('C' | PieceKind)[],
+  choiceOptions: readonly PieceKind[] = ['N', 'B'],
 ): Template {
   const cells: Cell[][] = Array.from({ length: height }, () => Array<Cell>(width).fill(null));
   for (const color of ['w', 'b'] as const) {
@@ -58,7 +68,7 @@ function createRanked(
     for (let x = 0; x < width; x++) {
       cells[home]![x] =
         back[x] === 'C'
-          ? { color, kind: 'coin', options: ['N', 'B'] }
+          ? { color, kind: 'coin', options: choiceOptions }
           : { color, kind: back[x] as PieceKind };
       cells[pawn]![x] = { color, kind: 'P' };
     }

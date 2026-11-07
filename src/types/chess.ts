@@ -68,11 +68,7 @@ export type ChessEngine = Readonly<{
     color: Color,
     choices: Readonly<Record<string, PieceKind>>,
   ) => ChoiceCoinSetup;
-  createGameState: (
-    template: Template,
-    choices: Readonly<Record<Color, Readonly<Record<string, PieceKind>>>>,
-    randomTurn?: Color,
-  ) => GameState;
+  createGameState: (setup: ChoiceCoinSetup, randomTurn?: Color) => GameState;
   createPresets: () => readonly Template[];
   getCheckedKingPositions: (board: Board) => readonly Position[];
   getLegalMoves: (state: GameState, origin?: Position) => readonly Move[];

@@ -19,7 +19,22 @@ void test('Choice Coin selections lock independently before the engine creates a
   const whiteLocked = lockChoiceCoins(createChoiceCoinSetup(template), 'w', white);
   assert.throws(() => lockChoiceCoins(whiteLocked, 'w', white), /locked/);
   const setup = lockChoiceCoins(whiteLocked, 'b', black);
-  const game = createGameState(template, setup.choices);
+  const game = createGameState(setup);
   assert.equal(game.board[12]?.[1]?.kind, 'B');
   assert.equal(game.board[0]?.[1]?.kind, 'N');
+});
+
+void test('Choice Coin locks cannot be bypassed when creating a playable state', () => {
+  const [, template] = createPresets();
+  const setup = createChoiceCoinSetup(template);
+  assert.throws(() => createGameState(setup), /locked/);
+  const whiteLocked = lockChoiceCoins(setup, 'w', {
+    '1:12': 'B',
+    '2:12': 'N',
+    '3:12': 'B',
+    '6:12': 'N',
+    '7:12': 'B',
+    '8:12': 'N',
+  });
+  assert.throws(() => createGameState(whiteLocked), /locked/);
 });
