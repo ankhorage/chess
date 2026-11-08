@@ -2,21 +2,22 @@ import assert from 'node:assert/strict';
 import { test } from 'node:test';
 
 import type { Cell, Color, PieceKind, Template } from '../../../types/chess';
+import { createFreeChoiceCoinPreset } from '../../templates/domain/createFreeChoiceCoinPreset';
 import { createPresets } from '../../templates/domain/createPresets';
 import { createChoiceCoinSetup, lockChoiceCoins } from './choiceCoinSetup';
-import { createGameState } from './createGameState';
 import { getLegalMoves } from './getLegalMoves';
 import { isKingInCheck } from './isKingInCheck';
 import { playMove } from './playMove';
 import { readOutcome } from './readOutcome';
 import { resignGame } from './resignGame';
+import { startGame } from './startGame';
 
 const choices: Record<Color, Record<string, PieceKind>> = { w: {}, b: {} };
 const createLockedGameState = (
   template: Template,
   selections: Record<Color, Record<string, PieceKind>> = choices,
 ) =>
-  createGameState(
+  startGame(
     lockChoiceCoins(
       lockChoiceCoins(createChoiceCoinSetup(template), 'w', selections.w),
       'b',
@@ -71,9 +72,8 @@ void test('10×13 coins are independent, fully resolved and immutable', () => {
   assert.throws(() => createLockedGameState(preset, choices), /invalid/);
 });
 
-void test('Free Choice Coins offer every piece kind and resolve locked selections', () => {
-  const preset = createPresets().find(({ id }) => id === 'free-choice-10x13');
-  assert.ok(preset);
+void test('Free Choice Coins offer every piece kind and reject disallowed options', () => {
+  const preset = createFreeChoiceCoinPreset();
   const coins = preset.cells.flat().filter((cell) => cell?.kind === 'coin');
   assert.equal(coins.length, 12);
   assert.ok(coins.every((coin) => coin.options.join(',') === 'P,N,B,R,Q,K'));
@@ -97,6 +97,18 @@ void test('Free Choice Coins offer every piece kind and resolve locked selection
   });
   assert.equal(state.board[12]?.[1]?.kind, 'P');
   assert.equal(state.board[0]?.[1]?.kind, 'K');
+  assert.throws(
+    () =>
+      lockChoiceCoins(createChoiceCoinSetup(preset), 'w', {
+        '1:12': 'P',
+        '2:12': 'N',
+        '3:12': 'B',
+        '6:12': 'R',
+        '7:12': 'Q',
+        '8:12': 'X' as PieceKind,
+      }),
+    /invalid/,
+  );
 });
 
 void test('kingless side plays but only an existing king can be mated', () => {

@@ -63,12 +63,12 @@ export type ChoiceCoinSetup = Readonly<{
 /*** The canonical public API of the headless rules engine. */
 export type ChessEngine = Readonly<{
   createChoiceCoinSetup: (template: Template) => ChoiceCoinSetup;
+  createFreeChoiceCoinPreset: () => Template;
   lockChoiceCoins: (
     setup: ChoiceCoinSetup,
     color: Color,
     choices: Readonly<Record<string, PieceKind>>,
   ) => ChoiceCoinSetup;
-  createGameState: (setup: ChoiceCoinSetup, randomTurn?: Color) => GameState;
   createPresets: () => readonly Template[];
   getCheckedKingPositions: (board: Board) => readonly Position[];
   getLegalMoves: (state: GameState, origin?: Position) => readonly Move[];
@@ -76,5 +76,6 @@ export type ChessEngine = Readonly<{
   playMove: (state: GameState, move: Move) => GameState;
   readOutcome: (state: GameState) => Result | null;
   resignGame: (state: GameState, color: Color) => GameState;
+  startGame: (setup: ChoiceCoinSetup, randomTurn?: Color) => GameState;
   stateSignature: (state: GameState) => string;
 }>;

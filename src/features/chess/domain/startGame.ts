@@ -6,11 +6,13 @@ import type {
   GameState,
   Piece,
 } from '../../../types/chess';
+import { isChoiceCoinSetupReady } from './isChoiceCoinSetupReady';
 import { stateSignature } from './stateSignature';
 
-/*** Resolve all choice coins into immutable starting pieces once both players are ready. */
-export function createGameState(setup: ChoiceCoinSetup, randomTurn: Color = 'w'): GameState {
-  if (!setup.locked.w || !setup.locked.b) throw new Error('Choice coins must be locked');
+/*** Start a playable game only from a complete Choice Coin setup. */
+export function startGame(setup: ChoiceCoinSetup, randomTurn: Color = 'w'): GameState {
+  if (!isChoiceCoinSetupReady(setup))
+    throw new Error('Choice coin setup must contain complete locked selections');
   const { template, choices } = setup;
   const board: Board = template.cells.map((row, y) =>
     row.map((cell, x): Piece | null => {
@@ -18,11 +20,11 @@ export function createGameState(setup: ChoiceCoinSetup, randomTurn: Color = 'w')
       if (cell.kind !== 'coin') return cell;
       const available = cell.color === 'w' ? choices.w : choices.b;
       const kind = Object.entries(available).find(([key]) => key === `${x}:${y}`)?.[1];
-      if (!kind || !cell.options.includes(kind))
-        throw new Error('Unresolved or invalid choice coin');
+      if (!kind) throw new Error('Choice coin setup is incomplete');
       return { color: cell.color, kind };
     }),
   );
+  /*** Derive initial castling rights from the resolved home rank. */
   const rights = (color: Color) => {
     const y = color === 'w' ? template.height - 1 : 0;
     const row = board.at(y) ?? [];
