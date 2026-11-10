@@ -3,7 +3,7 @@
 
 # @ankhorage/chess
 
-![license: MIT](./paradox/badges/license.svg) ![npm: v0.0.0](./paradox/badges/npm.svg) ![runtime: bun](./paradox/badges/runtime.svg) ![typescript: strict](./paradox/badges/typescript.svg) ![eslint: checked](./paradox/badges/eslint.svg) ![prettier: checked](./paradox/badges/prettier.svg) ![build: checked](./paradox/badges/build.svg) ![tests: configured](./paradox/badges/tests.svg) ![paradox: canonical](./paradox/badges/docs.svg)
+![license: MIT](./paradox/badges/license.svg) ![npm: v0.1.0](./paradox/badges/npm.svg) ![runtime: bun](./paradox/badges/runtime.svg) ![typescript: strict](./paradox/badges/typescript.svg) ![eslint: checked](./paradox/badges/eslint.svg) ![prettier: checked](./paradox/badges/prettier.svg) ![build: checked](./paradox/badges/build.svg) ![tests: configured](./paradox/badges/tests.svg) ![paradox: canonical](./paradox/badges/docs.svg)
 
 Framework-independent, headless rules engine for configurable chess.
 

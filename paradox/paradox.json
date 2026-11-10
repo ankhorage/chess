@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.0.0",
+      "value": "v0.1.0",
       "color": "cb3837"
     },
     {
@@ -81,10 +81,262 @@
       ]
     },
     {
+      "path": "src/features/chess/domain/applyUnchecked.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "applyUnchecked"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/chess.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/chess/domain/choiceCoinSetup.ts",
+        "src/features/chess/domain/getLegalMoves.ts",
+        "src/features/chess/domain/isKingInCheck.ts",
+        "src/features/chess/domain/playMove.ts",
+        "src/features/chess/domain/readOutcome.ts",
+        "src/features/chess/domain/resignGame.ts",
+        "src/features/chess/domain/startGame.ts",
+        "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+        "src/features/templates/domain/createPresets.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/chess/domain/choiceCoinSetup.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/chess/domain/choiceCoinSetup.ts",
+        "src/features/chess/domain/startGame.ts",
+        "src/features/templates/domain/createPresets.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/chess/domain/choiceCoinSetup.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "createChoiceCoinSetup",
+        "lockChoiceCoins"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/createChessEngine.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/chess/domain/choiceCoinSetup.ts",
+        "src/features/chess/domain/getCheckedKingPositions.ts",
+        "src/features/chess/domain/getLegalMoves.ts",
+        "src/features/chess/domain/isKingInCheck.ts",
+        "src/features/chess/domain/playMove.ts",
+        "src/features/chess/domain/readOutcome.ts",
+        "src/features/chess/domain/resignGame.ts",
+        "src/features/chess/domain/startGame.ts",
+        "src/features/chess/domain/stateSignature.ts",
+        "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+        "src/features/templates/domain/createPresets.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "createChessEngine"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/getCheckedKingPositions.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/chess/domain/isSquareAttacked.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "getCheckedKingPositions"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/getLegalMoves.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/chess/domain/applyUnchecked.ts",
+        "src/features/chess/domain/isKingInCheck.ts",
+        "src/features/chess/domain/isSquareAttacked.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "getLegalMoves"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/isChoiceCoinSetupReady.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "isChoiceCoinSetupReady"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/isKingInCheck.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/chess/domain/isSquareAttacked.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "isKingInCheck"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/isSquareAttacked.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "isSquareAttacked"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/playMove.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/chess/domain/applyUnchecked.ts",
+        "src/features/chess/domain/getLegalMoves.ts",
+        "src/features/chess/domain/stateSignature.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "playMove"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/readOutcome.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/chess/domain/getLegalMoves.ts",
+        "src/features/chess/domain/isKingInCheck.ts",
+        "src/features/chess/domain/stateSignature.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "readOutcome"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/resignGame.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "resignGame"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/startGame.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/chess/domain/isChoiceCoinSetupReady.ts",
+        "src/features/chess/domain/stateSignature.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "startGame"
+      ]
+    },
+    {
+      "path": "src/features/chess/domain/stateSignature.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "stateSignature"
+      ]
+    },
+    {
+      "path": "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/templates/domain/createRankedTemplate.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "createFreeChoiceCoinPreset"
+      ]
+    },
+    {
+      "path": "src/features/templates/domain/createPresets.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+        "src/features/templates/domain/createRankedTemplate.ts",
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "createPresets"
+      ]
+    },
+    {
+      "path": "src/features/templates/domain/createRankedTemplate.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/types/chess.ts"
+      ],
+      "exports": [
+        "createRankedTemplate"
+      ]
+    },
+    {
       "path": "src/index.ts",
       "isEntrypoint": true,
       "dependencies": [],
-      "exports": []
+      "exports": [
+        "Board",
+        "Castling",
+        "Cell",
+        "ChessEngine",
+        "ChoiceCoin",
+        "ChoiceCoinSetup",
+        "Color",
+        "createChessEngine",
+        "GameState",
+        "Move",
+        "Piece",
+        "PieceKind",
+        "Position",
+        "Result",
+        "Template"
+      ]
+    },
+    {
+      "path": "src/types/chess.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "Board",
+        "Castling",
+        "Cell",
+        "ChessEngine",
+        "ChoiceCoin",
+        "ChoiceCoinSetup",
+        "Color",
+        "GameState",
+        "Move",
+        "Piece",
+        "PieceKind",
+        "Position",
+        "Result",
+        "Template"
+      ]
     },
     {
       "path": "test/package.test.ts",
@@ -95,16 +347,1104 @@
       "exports": []
     }
   ],
-  "exports": [],
+  "exports": [
+    {
+      "name": "Board",
+      "title": null,
+      "description": "A rectangular board containing fixed pieces.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 33,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "Castling",
+      "title": null,
+      "description": "Per-color castling rights.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 24,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "Cell",
+      "title": null,
+      "description": "A serializable starting-board cell.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 10,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChessEngine",
+      "title": null,
+      "description": "The canonical public API of the headless rules engine.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 64,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChoiceCoin",
+      "title": null,
+      "description": "A Choice Coin that resolves before normal play.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 8,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "ChoiceCoinSetup",
+      "title": null,
+      "description": "A server-persistable Choice Coin setup with immutable locks per player.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 58,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "Color",
+      "title": null,
+      "description": "A chess side.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 2,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "createChessEngine",
+      "title": null,
+      "description": "Create the sole framework-independent boundary for configurable chess rules.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/chess/domain/createChessEngine.ts",
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/createChessEngine.ts",
+        "line": 15,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [
+        "Board",
+        "ChoiceCoinSetup",
+        "Color",
+        "GameState",
+        "Move",
+        "PieceKind",
+        "Position",
+        "Result",
+        "Template"
+      ],
+      "signatures": [
+        {
+          "label": "() => Readonly<{ createChoiceCoinSetup: (template: import(\"../../..\").Template) => import(\"../../..\").ChoiceCoinSetup; createFreeChoiceCoinPreset: () => import(\"../../..\").Template; lockChoiceCoins: (setup: import(\"../../..\").ChoiceCoinSetup, color: import(\"../../..\").Color, choices: Readonly<Record<string, import(\"../../..\").PieceKind>>) => import(\"../../..\").ChoiceCoinSetup; createPresets: () => readonly import(\"../../..\").Template[]; getCheckedKingPositions: (board: import(\"../../..\").Board) => readonly import(\"../../..\").Position[]; getLegalMoves: (state: import(\"../../..\").GameState, origin?: import(\"../../..\").Position) => readonly import(\"../../..\").Move[]; isKingInCheck: (board: import(\"../../..\").Board, color: import(\"../../..\").Color) => boolean; playMove: (state: import(\"../../..\").GameState, move: import(\"../../..\").Move) => import(\"../../..\").GameState; readOutcome: (state: import(\"../../..\").GameState) => import(\"../../..\").Result | null; resignGame: (state: import(\"../../..\").GameState, color: import(\"../../..\").Color) => import(\"../../..\").GameState; startGame: (setup: import(\"../../..\").ChoiceCoinSetup, randomTurn?: import(\"../../..\").Color) => import(\"../../..\").GameState; stateSignature: (state: import(\"../../..\").GameState) => string; }>",
+          "parameters": [],
+          "returnType": "Readonly<{ createChoiceCoinSetup: (template: import(\"../../..\").Template) => import(\"../../..\").ChoiceCoinSetup; createFreeChoiceCoinPreset: () => import(\"../../..\").Template; lockChoiceCoins: (setup: import(\"../../..\").ChoiceCoinSetup, color: import(\"../../..\").Color, choices: Readonly<Record<string, import(\"../../..\").PieceKind>>) => import(\"../../..\").ChoiceCoinSetup; createPresets: () => readonly import(\"../../..\").Template[]; getCheckedKingPositions: (board: import(\"../../..\").Board) => readonly import(\"../../..\").Position[]; getLegalMoves: (state: import(\"../../..\").GameState, origin?: import(\"../../..\").Position) => readonly import(\"../../..\").Move[]; isKingInCheck: (board: import(\"../../..\").Board, color: import(\"../../..\").Color) => boolean; playMove: (state: import(\"../../..\").GameState, move: import(\"../../..\").Move) => import(\"../../..\").GameState; readOutcome: (state: import(\"../../..\").GameState) => import(\"../../..\").Result | null; resignGame: (state: import(\"../../..\").GameState, color: import(\"../../..\").Color) => import(\"../../..\").GameState; startGame: (setup: import(\"../../..\").ChoiceCoinSetup, randomTurn?: import(\"../../..\").Color) => import(\"../../..\").GameState; stateSignature: (state: import(\"../../..\").GameState) => string; }>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "GameState",
+      "title": null,
+      "description": "An immutable playable position.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 35,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "Move",
+      "title": null,
+      "description": "A legal move including optional promotion or castle metadata.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 26,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "Piece",
+      "title": null,
+      "description": "A fixed board piece.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 6,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "PieceKind",
+      "title": null,
+      "description": "A chess piece kind.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 4,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "Position",
+      "title": null,
+      "description": "A zero-indexed board position.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 12,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "Result",
+      "title": null,
+      "description": "An automatic terminal game result.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 47,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "Template",
+      "title": null,
+      "description": "A configurable starting position.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/chess.ts",
+      "sourceLocation": {
+        "filePath": "src/types/chess.ts",
+        "line": 14,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/index.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    }
+  ],
   "components": [],
-  "sourceFunctions": [],
-  "sequenceScenarios": [],
+  "sourceFunctions": [
+    {
+      "name": "applyUnchecked",
+      "description": "Apply a pseudolegal move without king-safety validation.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/applyUnchecked.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "transferPieces",
+      "description": "Move and promote pieces using an immutable board transformation.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/applyUnchecked.ts",
+        "line": 35,
+        "column": 1
+      }
+    },
+    {
+      "name": "updateCastling",
+      "description": "Expire castling rights when kings or eligible corner rooks move.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/applyUnchecked.ts",
+        "line": 58,
+        "column": 1
+      }
+    },
+    {
+      "name": "revokeRookRights",
+      "description": "Revoke only the matching edge-rook right on its original home rank.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/applyUnchecked.ts",
+        "line": 79,
+        "column": 1
+      }
+    },
+    {
+      "name": "createLockedGameState",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/chess.test.ts",
+        "line": 16,
+        "column": 7
+      }
+    },
+    {
+      "name": "empty",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/chess.test.ts",
+        "line": 27,
+        "column": 7
+      }
+    },
+    {
+      "name": "change",
+      "description": null,
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/chess.test.ts",
+        "line": 35,
+        "column": 7
+      }
+    },
+    {
+      "name": "createChoiceCoinSetup",
+      "description": "Create a server-persistable choice setup before either player may make normal moves.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/choiceCoinSetup.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "lockChoiceCoins",
+      "description": "Validate and permanently lock exactly one player's complete Choice Coin selection.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/choiceCoinSetup.ts",
+        "line": 9,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSelectedOption",
+      "description": "Match a submitted selection without trusting a dynamically indexed object key.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/choiceCoinSetup.ts",
+        "line": 36,
+        "column": 1
+      }
+    },
+    {
+      "name": "createChessEngine",
+      "description": "Create the sole framework-independent boundary for configurable chess rules.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/createChessEngine.ts",
+        "line": 15,
+        "column": 1
+      }
+    },
+    {
+      "name": "getCheckedKingPositions",
+      "description": "Locate every attacked king, including multiple kings on custom rectangular boards.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getCheckedKingPositions.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "getLegalMoves",
+      "description": "Enumerate legal moves for the player to move on a rectangular board.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "pseudoMoves",
+      "description": "Generate candidate moves including special moves, before self-check filtering.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 58,
+        "column": 1
+      }
+    },
+    {
+      "name": "pawnMoves",
+      "description": "Enumerate pawn moves including en passant and optional promotion.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 67,
+        "column": 1
+      }
+    },
+    {
+      "name": "pawnForwardMoves",
+      "description": "Generate legal forward pawn steps with home-rank double movement.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 80,
+        "column": 1
+      }
+    },
+    {
+      "name": "isPawnCapture",
+      "description": "Identify legal pawn capture targets, including an available en passant square.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 93,
+        "column": 1
+      }
+    },
+    {
+      "name": "withPromotion",
+      "description": "Expand a pawn arrival into four promotion choices when it reaches the last rank.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 106,
+        "column": 1
+      }
+    },
+    {
+      "name": "stepMoves",
+      "description": "Choose leaper or slider directions without mixing ray traversal concerns.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 117,
+        "column": 1
+      }
+    },
+    {
+      "name": "rayMoves",
+      "description": "Stop a sliding ray at the first occupied or out-of-bounds square.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 133,
+        "column": 1
+      }
+    },
+    {
+      "name": "castleMoves",
+      "description": "Permit castling only with a valid edge rook, clear corridor and safe king transit.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 155,
+        "column": 1
+      }
+    },
+    {
+      "name": "castleSide",
+      "description": "Verify the selected castling side without assuming an 8×8 board.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 162,
+        "column": 1
+      }
+    },
+    {
+      "name": "castlingPathClear",
+      "description": "Verify empty castling squares and absence of enemy attacks on king transit.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/getLegalMoves.ts",
+        "line": 181,
+        "column": 1
+      }
+    },
+    {
+      "name": "isChoiceCoinSetupReady",
+      "description": "Check whether every Choice Coin has an allowed locked selection, or no coins exist.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/isChoiceCoinSetupReady.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "required",
+      "description": "List the Choice Coins whose selections belong to one player.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/isChoiceCoinSetupReady.ts",
+        "line": 6,
+        "column": 9
+      }
+    },
+    {
+      "name": "hasExactSelections",
+      "description": "Match a selection set exactly to the Choice Coins owned by one player.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/isChoiceCoinSetupReady.ts",
+        "line": 26,
+        "column": 1
+      }
+    },
+    {
+      "name": "isKingInCheck",
+      "description": "A missing king cannot be checked; multiple configured kings must all be safe.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/isKingInCheck.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "isSquareAttacked",
+      "description": "Determine whether any enemy piece attacks a square, regardless of its own king's safety.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/isSquareAttacked.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "pieceAttacks",
+      "description": "Check the attack shape for one piece type.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/isSquareAttacked.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "slidingAttacks",
+      "description": "Verify diagonal or orthogonal ray attacks with no occupied intermediate square.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/isSquareAttacked.ts",
+        "line": 25,
+        "column": 1
+      }
+    },
+    {
+      "name": "playMove",
+      "description": "Validate and execute one move, never trusting the client-provided destination or promotion.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/playMove.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "readOutcome",
+      "description": "Decide checkmate and automatic draw outcomes without requiring both kings to exist.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/readOutcome.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "insufficientMaterial",
+      "description": "Recognize only the universally dead basic-material endings.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/readOutcome.ts",
+        "line": 23,
+        "column": 1
+      }
+    },
+    {
+      "name": "resignGame",
+      "description": "Record a voluntary resignation as an immutable terminal game state.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/resignGame.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "startGame",
+      "description": "Start a playable game only from a complete Choice Coin setup.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/startGame.ts",
+        "line": 13,
+        "column": 1
+      }
+    },
+    {
+      "name": "rights",
+      "description": "Derive initial castling rights from the resolved home rank.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/startGame.ts",
+        "line": 28,
+        "column": 9
+      }
+    },
+    {
+      "name": "stateSignature",
+      "description": "Canonically identify a position for threefold-repetition detection.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/chess/domain/stateSignature.ts",
+        "line": 4,
+        "column": 1
+      }
+    },
+    {
+      "name": "createFreeChoiceCoinPreset",
+      "description": "Create the named Free Choice Coin preset with every standard piece option.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+        "line": 5,
+        "column": 1
+      }
+    },
+    {
+      "name": "createPresets",
+      "description": "Supply standard, Choice Coin, Free Choice Coin, and teaching endgame presets.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/templates/domain/createPresets.ts",
+        "line": 6,
+        "column": 1
+      }
+    },
+    {
+      "name": "createRankedTemplate",
+      "description": "Create symmetrical home ranks with fixed pawns and configurable Choice Coin options.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/templates/domain/createRankedTemplate.ts",
+        "line": 4,
+        "column": 1
+      }
+    }
+  ],
+  "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "createChessEngine",
+      "sourcePath": "src/features/chess/domain/createChessEngine.ts",
+      "symbolName": "createChessEngine",
+      "description": "Create the sole framework-independent boundary for configurable chess rules.",
+      "isReadme": false
+    }
+  ],
   "graphs": {
     "imports": [
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/features/chess/domain/createChessEngine.ts",
+        "sourcePath": "src/index.ts"
+      },
+      {
+        "fromPath": "src/index.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/index.ts"
+      },
       {
         "fromPath": "test/package.test.ts",
         "toPath": "src/index.ts",
         "sourcePath": "test/package.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/applyUnchecked.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/applyUnchecked.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/features/templates/domain/createPresets.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/features/chess/domain/choiceCoinSetup.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/features/chess/domain/getLegalMoves.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/features/chess/domain/isKingInCheck.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/features/chess/domain/playMove.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/features/chess/domain/readOutcome.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/features/chess/domain/resignGame.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/chess.test.ts",
+        "toPath": "src/features/chess/domain/startGame.ts",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/choiceCoinSetup.test.ts",
+        "toPath": "src/features/templates/domain/createPresets.ts",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/choiceCoinSetup.test.ts",
+        "toPath": "src/features/chess/domain/choiceCoinSetup.ts",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/choiceCoinSetup.test.ts",
+        "toPath": "src/features/chess/domain/startGame.ts",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.test.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/choiceCoinSetup.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/templates/domain/createPresets.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/chess/domain/choiceCoinSetup.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/chess/domain/getCheckedKingPositions.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/chess/domain/getLegalMoves.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/chess/domain/isKingInCheck.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/chess/domain/playMove.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/chess/domain/readOutcome.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/chess/domain/resignGame.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/chess/domain/startGame.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/createChessEngine.ts",
+        "toPath": "src/features/chess/domain/stateSignature.ts",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/getCheckedKingPositions.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/getCheckedKingPositions.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/getCheckedKingPositions.ts",
+        "toPath": "src/features/chess/domain/isSquareAttacked.ts",
+        "sourcePath": "src/features/chess/domain/getCheckedKingPositions.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/getLegalMoves.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/getLegalMoves.ts",
+        "toPath": "src/features/chess/domain/applyUnchecked.ts",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/getLegalMoves.ts",
+        "toPath": "src/features/chess/domain/isKingInCheck.ts",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/getLegalMoves.ts",
+        "toPath": "src/features/chess/domain/isSquareAttacked.ts",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/isChoiceCoinSetupReady.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/isChoiceCoinSetupReady.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/isKingInCheck.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/isKingInCheck.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/isKingInCheck.ts",
+        "toPath": "src/features/chess/domain/isSquareAttacked.ts",
+        "sourcePath": "src/features/chess/domain/isKingInCheck.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/isSquareAttacked.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/isSquareAttacked.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/playMove.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/playMove.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/playMove.ts",
+        "toPath": "src/features/chess/domain/applyUnchecked.ts",
+        "sourcePath": "src/features/chess/domain/playMove.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/playMove.ts",
+        "toPath": "src/features/chess/domain/getLegalMoves.ts",
+        "sourcePath": "src/features/chess/domain/playMove.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/playMove.ts",
+        "toPath": "src/features/chess/domain/stateSignature.ts",
+        "sourcePath": "src/features/chess/domain/playMove.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/readOutcome.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/readOutcome.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/readOutcome.ts",
+        "toPath": "src/features/chess/domain/getLegalMoves.ts",
+        "sourcePath": "src/features/chess/domain/readOutcome.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/readOutcome.ts",
+        "toPath": "src/features/chess/domain/isKingInCheck.ts",
+        "sourcePath": "src/features/chess/domain/readOutcome.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/readOutcome.ts",
+        "toPath": "src/features/chess/domain/stateSignature.ts",
+        "sourcePath": "src/features/chess/domain/readOutcome.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/resignGame.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/resignGame.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/startGame.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/startGame.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/startGame.ts",
+        "toPath": "src/features/chess/domain/isChoiceCoinSetupReady.ts",
+        "sourcePath": "src/features/chess/domain/startGame.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/startGame.ts",
+        "toPath": "src/features/chess/domain/stateSignature.ts",
+        "sourcePath": "src/features/chess/domain/startGame.ts"
+      },
+      {
+        "fromPath": "src/features/chess/domain/stateSignature.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/chess/domain/stateSignature.ts"
+      },
+      {
+        "fromPath": "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/templates/domain/createFreeChoiceCoinPreset.ts"
+      },
+      {
+        "fromPath": "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+        "toPath": "src/features/templates/domain/createRankedTemplate.ts",
+        "sourcePath": "src/features/templates/domain/createFreeChoiceCoinPreset.ts"
+      },
+      {
+        "fromPath": "src/features/templates/domain/createPresets.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/templates/domain/createPresets.ts"
+      },
+      {
+        "fromPath": "src/features/templates/domain/createPresets.ts",
+        "toPath": "src/features/templates/domain/createFreeChoiceCoinPreset.ts",
+        "sourcePath": "src/features/templates/domain/createPresets.ts"
+      },
+      {
+        "fromPath": "src/features/templates/domain/createPresets.ts",
+        "toPath": "src/features/templates/domain/createRankedTemplate.ts",
+        "sourcePath": "src/features/templates/domain/createPresets.ts"
+      },
+      {
+        "fromPath": "src/features/templates/domain/createRankedTemplate.ts",
+        "toPath": "src/types/chess.ts",
+        "sourcePath": "src/features/templates/domain/createRankedTemplate.ts"
       }
     ],
     "calls": [
@@ -125,9 +1465,444 @@
         "toSymbol": "expect",
         "callExpression": "expect",
         "sourcePath": "test/package.test.ts"
+      },
+      {
+        "fromSymbol": "test/package.test.ts",
+        "toSymbol": "createChessEngine",
+        "callExpression": "chess.createChessEngine",
+        "sourcePath": "test/package.test.ts"
+      },
+      {
+        "fromSymbol": "test/package.test.ts",
+        "toSymbol": "createFreeChoiceCoinPreset",
+        "callExpression": "engine.createFreeChoiceCoinPreset",
+        "sourcePath": "test/package.test.ts"
+      },
+      {
+        "fromSymbol": "test/package.test.ts",
+        "toSymbol": "createPresets",
+        "callExpression": "engine.createPresets",
+        "sourcePath": "test/package.test.ts"
+      },
+      {
+        "fromSymbol": "test/package.test.ts",
+        "toSymbol": "startGame",
+        "callExpression": "engine.startGame",
+        "sourcePath": "test/package.test.ts"
+      },
+      {
+        "fromSymbol": "test/package.test.ts",
+        "toSymbol": "createChoiceCoinSetup",
+        "callExpression": "engine.createChoiceCoinSetup",
+        "sourcePath": "test/package.test.ts"
+      },
+      {
+        "fromSymbol": "applyUnchecked",
+        "toSymbol": "transferPieces",
+        "callExpression": "transferPieces",
+        "sourcePath": "src/features/chess/domain/applyUnchecked.ts"
+      },
+      {
+        "fromSymbol": "applyUnchecked",
+        "toSymbol": "updateCastling",
+        "callExpression": "updateCastling",
+        "sourcePath": "src/features/chess/domain/applyUnchecked.ts"
+      },
+      {
+        "fromSymbol": "updateCastling",
+        "toSymbol": "revokeRookRights",
+        "callExpression": "revokeRookRights",
+        "sourcePath": "src/features/chess/domain/applyUnchecked.ts"
+      },
+      {
+        "fromSymbol": "createLockedGameState",
+        "toSymbol": "startGame",
+        "callExpression": "startGame",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "createLockedGameState",
+        "toSymbol": "lockChoiceCoins",
+        "callExpression": "lockChoiceCoins",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "createLockedGameState",
+        "toSymbol": "createChoiceCoinSetup",
+        "callExpression": "createChoiceCoinSetup",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "createLockedGameState",
+        "callExpression": "createLockedGameState",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "createPresets",
+        "callExpression": "createPresets",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "getLegalMoves",
+        "callExpression": "getLegalMoves",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "playMove",
+        "callExpression": "playMove",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "createFreeChoiceCoinPreset",
+        "callExpression": "createFreeChoiceCoinPreset",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "lockChoiceCoins",
+        "callExpression": "lockChoiceCoins",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "createChoiceCoinSetup",
+        "callExpression": "createChoiceCoinSetup",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "change",
+        "callExpression": "change",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "empty",
+        "callExpression": "empty",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "isKingInCheck",
+        "callExpression": "isKingInCheck",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "readOutcome",
+        "callExpression": "readOutcome",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/chess.test.ts",
+        "toSymbol": "resignGame",
+        "callExpression": "resignGame",
+        "sourcePath": "src/features/chess/domain/chess.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/choiceCoinSetup.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/choiceCoinSetup.test.ts",
+        "toSymbol": "createPresets",
+        "callExpression": "createPresets",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/choiceCoinSetup.test.ts",
+        "toSymbol": "lockChoiceCoins",
+        "callExpression": "lockChoiceCoins",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/choiceCoinSetup.test.ts",
+        "toSymbol": "createChoiceCoinSetup",
+        "callExpression": "createChoiceCoinSetup",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/choiceCoinSetup.test.ts",
+        "toSymbol": "startGame",
+        "callExpression": "startGame",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/choiceCoinSetup.ts",
+        "toSymbol": "isSelectedOption",
+        "callExpression": "isSelectedOption",
+        "sourcePath": "src/features/chess/domain/choiceCoinSetup.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/getCheckedKingPositions.ts",
+        "toSymbol": "isSquareAttacked",
+        "callExpression": "isSquareAttacked",
+        "sourcePath": "src/features/chess/domain/getCheckedKingPositions.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/getLegalMoves.ts",
+        "toSymbol": "pseudoMoves",
+        "callExpression": "pseudoMoves",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/getLegalMoves.ts",
+        "toSymbol": "isKingInCheck",
+        "callExpression": "isKingInCheck",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/getLegalMoves.ts",
+        "toSymbol": "applyUnchecked",
+        "callExpression": "applyUnchecked",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "pseudoMoves",
+        "toSymbol": "pawnMoves",
+        "callExpression": "pawnMoves",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "pseudoMoves",
+        "toSymbol": "stepMoves",
+        "callExpression": "stepMoves",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "pseudoMoves",
+        "toSymbol": "castleMoves",
+        "callExpression": "castleMoves",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "pawnMoves",
+        "toSymbol": "pawnForwardMoves",
+        "callExpression": "pawnForwardMoves",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "pawnMoves",
+        "toSymbol": "isPawnCapture",
+        "callExpression": "isPawnCapture",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "pawnMoves",
+        "toSymbol": "withPromotion",
+        "callExpression": "withPromotion",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "pawnForwardMoves",
+        "toSymbol": "withPromotion",
+        "callExpression": "withPromotion",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/getLegalMoves.ts",
+        "toSymbol": "rayMoves",
+        "callExpression": "rayMoves",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "castleMoves",
+        "toSymbol": "isKingInCheck",
+        "callExpression": "isKingInCheck",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/getLegalMoves.ts",
+        "toSymbol": "castleSide",
+        "callExpression": "castleSide",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "castleSide",
+        "toSymbol": "castlingPathClear",
+        "callExpression": "castlingPathClear",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/getLegalMoves.ts",
+        "toSymbol": "isSquareAttacked",
+        "callExpression": "isSquareAttacked",
+        "sourcePath": "src/features/chess/domain/getLegalMoves.ts"
+      },
+      {
+        "fromSymbol": "isChoiceCoinSetupReady",
+        "toSymbol": "required",
+        "callExpression": "required",
+        "sourcePath": "src/features/chess/domain/isChoiceCoinSetupReady.ts"
+      },
+      {
+        "fromSymbol": "isChoiceCoinSetupReady",
+        "toSymbol": "hasExactSelections",
+        "callExpression": "hasExactSelections",
+        "sourcePath": "src/features/chess/domain/isChoiceCoinSetupReady.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/isKingInCheck.ts",
+        "toSymbol": "isSquareAttacked",
+        "callExpression": "isSquareAttacked",
+        "sourcePath": "src/features/chess/domain/isKingInCheck.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/isSquareAttacked.ts",
+        "toSymbol": "pieceAttacks",
+        "callExpression": "pieceAttacks",
+        "sourcePath": "src/features/chess/domain/isSquareAttacked.ts"
+      },
+      {
+        "fromSymbol": "pieceAttacks",
+        "toSymbol": "slidingAttacks",
+        "callExpression": "slidingAttacks",
+        "sourcePath": "src/features/chess/domain/isSquareAttacked.ts"
+      },
+      {
+        "fromSymbol": "playMove",
+        "toSymbol": "getLegalMoves",
+        "callExpression": "getLegalMoves",
+        "sourcePath": "src/features/chess/domain/playMove.ts"
+      },
+      {
+        "fromSymbol": "playMove",
+        "toSymbol": "applyUnchecked",
+        "callExpression": "applyUnchecked",
+        "sourcePath": "src/features/chess/domain/playMove.ts"
+      },
+      {
+        "fromSymbol": "playMove",
+        "toSymbol": "stateSignature",
+        "callExpression": "stateSignature",
+        "sourcePath": "src/features/chess/domain/playMove.ts"
+      },
+      {
+        "fromSymbol": "src/features/chess/domain/readOutcome.ts",
+        "toSymbol": "stateSignature",
+        "callExpression": "stateSignature",
+        "sourcePath": "src/features/chess/domain/readOutcome.ts"
+      },
+      {
+        "fromSymbol": "readOutcome",
+        "toSymbol": "insufficientMaterial",
+        "callExpression": "insufficientMaterial",
+        "sourcePath": "src/features/chess/domain/readOutcome.ts"
+      },
+      {
+        "fromSymbol": "readOutcome",
+        "toSymbol": "getLegalMoves",
+        "callExpression": "getLegalMoves",
+        "sourcePath": "src/features/chess/domain/readOutcome.ts"
+      },
+      {
+        "fromSymbol": "readOutcome",
+        "toSymbol": "isKingInCheck",
+        "callExpression": "isKingInCheck",
+        "sourcePath": "src/features/chess/domain/readOutcome.ts"
+      },
+      {
+        "fromSymbol": "startGame",
+        "toSymbol": "isChoiceCoinSetupReady",
+        "callExpression": "isChoiceCoinSetupReady",
+        "sourcePath": "src/features/chess/domain/startGame.ts"
+      },
+      {
+        "fromSymbol": "startGame",
+        "toSymbol": "rights",
+        "callExpression": "rights",
+        "sourcePath": "src/features/chess/domain/startGame.ts"
+      },
+      {
+        "fromSymbol": "startGame",
+        "toSymbol": "stateSignature",
+        "callExpression": "stateSignature",
+        "sourcePath": "src/features/chess/domain/startGame.ts"
+      },
+      {
+        "fromSymbol": "createFreeChoiceCoinPreset",
+        "toSymbol": "createRankedTemplate",
+        "callExpression": "createRankedTemplate",
+        "sourcePath": "src/features/templates/domain/createFreeChoiceCoinPreset.ts"
+      },
+      {
+        "fromSymbol": "createPresets",
+        "toSymbol": "createRankedTemplate",
+        "callExpression": "createRankedTemplate",
+        "sourcePath": "src/features/templates/domain/createPresets.ts"
+      },
+      {
+        "fromSymbol": "createPresets",
+        "toSymbol": "createFreeChoiceCoinPreset",
+        "callExpression": "createFreeChoiceCoinPreset",
+        "sourcePath": "src/features/templates/domain/createPresets.ts"
       }
     ],
-    "typeReferences": [],
+    "typeReferences": [
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "Board",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "ChoiceCoinSetup",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "Color",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "GameState",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "Move",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "PieceKind",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "Position",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "Readonly",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "Result",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      },
+      {
+        "fromSymbol": "createChessEngine",
+        "toType": "Template",
+        "sourcePath": "src/features/chess/domain/createChessEngine.ts"
+      }
+    ],
     "componentComposition": []
   }
 }

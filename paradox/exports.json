@@ -1,1 +1,349 @@
-[]
+[
+  {
+    "name": "Board",
+    "title": null,
+    "description": "A rectangular board containing fixed pieces.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 33,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Castling",
+    "title": null,
+    "description": "Per-color castling rights.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 24,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Cell",
+    "title": null,
+    "description": "A serializable starting-board cell.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 10,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ChessEngine",
+    "title": null,
+    "description": "The canonical public API of the headless rules engine.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 64,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ChoiceCoin",
+    "title": null,
+    "description": "A Choice Coin that resolves before normal play.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 8,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "ChoiceCoinSetup",
+    "title": null,
+    "description": "A server-persistable Choice Coin setup with immutable locks per player.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 58,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Color",
+    "title": null,
+    "description": "A chess side.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 2,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createChessEngine",
+    "title": null,
+    "description": "Create the sole framework-independent boundary for configurable chess rules.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/chess/domain/createChessEngine.ts",
+    "sourceLocation": {
+      "filePath": "src/features/chess/domain/createChessEngine.ts",
+      "line": 15,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [
+      "Board",
+      "ChoiceCoinSetup",
+      "Color",
+      "GameState",
+      "Move",
+      "PieceKind",
+      "Position",
+      "Result",
+      "Template"
+    ],
+    "signatures": [
+      {
+        "label": "() => Readonly<{ createChoiceCoinSetup: (template: import(\"../../..\").Template) => import(\"../../..\").ChoiceCoinSetup; createFreeChoiceCoinPreset: () => import(\"../../..\").Template; lockChoiceCoins: (setup: import(\"../../..\").ChoiceCoinSetup, color: import(\"../../..\").Color, choices: Readonly<Record<string, import(\"../../..\").PieceKind>>) => import(\"../../..\").ChoiceCoinSetup; createPresets: () => readonly import(\"../../..\").Template[]; getCheckedKingPositions: (board: import(\"../../..\").Board) => readonly import(\"../../..\").Position[]; getLegalMoves: (state: import(\"../../..\").GameState, origin?: import(\"../../..\").Position) => readonly import(\"../../..\").Move[]; isKingInCheck: (board: import(\"../../..\").Board, color: import(\"../../..\").Color) => boolean; playMove: (state: import(\"../../..\").GameState, move: import(\"../../..\").Move) => import(\"../../..\").GameState; readOutcome: (state: import(\"../../..\").GameState) => import(\"../../..\").Result | null; resignGame: (state: import(\"../../..\").GameState, color: import(\"../../..\").Color) => import(\"../../..\").GameState; startGame: (setup: import(\"../../..\").ChoiceCoinSetup, randomTurn?: import(\"../../..\").Color) => import(\"../../..\").GameState; stateSignature: (state: import(\"../../..\").GameState) => string; }>",
+        "parameters": [],
+        "returnType": "Readonly<{ createChoiceCoinSetup: (template: import(\"../../..\").Template) => import(\"../../..\").ChoiceCoinSetup; createFreeChoiceCoinPreset: () => import(\"../../..\").Template; lockChoiceCoins: (setup: import(\"../../..\").ChoiceCoinSetup, color: import(\"../../..\").Color, choices: Readonly<Record<string, import(\"../../..\").PieceKind>>) => import(\"../../..\").ChoiceCoinSetup; createPresets: () => readonly import(\"../../..\").Template[]; getCheckedKingPositions: (board: import(\"../../..\").Board) => readonly import(\"../../..\").Position[]; getLegalMoves: (state: import(\"../../..\").GameState, origin?: import(\"../../..\").Position) => readonly import(\"../../..\").Move[]; isKingInCheck: (board: import(\"../../..\").Board, color: import(\"../../..\").Color) => boolean; playMove: (state: import(\"../../..\").GameState, move: import(\"../../..\").Move) => import(\"../../..\").GameState; readOutcome: (state: import(\"../../..\").GameState) => import(\"../../..\").Result | null; resignGame: (state: import(\"../../..\").GameState, color: import(\"../../..\").Color) => import(\"../../..\").GameState; startGame: (setup: import(\"../../..\").ChoiceCoinSetup, randomTurn?: import(\"../../..\").Color) => import(\"../../..\").GameState; stateSignature: (state: import(\"../../..\").GameState) => string; }>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "GameState",
+    "title": null,
+    "description": "An immutable playable position.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 35,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Move",
+    "title": null,
+    "description": "A legal move including optional promotion or castle metadata.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 26,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Piece",
+    "title": null,
+    "description": "A fixed board piece.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 6,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "PieceKind",
+    "title": null,
+    "description": "A chess piece kind.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 4,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Position",
+    "title": null,
+    "description": "A zero-indexed board position.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Result",
+    "title": null,
+    "description": "An automatic terminal game result.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 47,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "Template",
+    "title": null,
+    "description": "A configurable starting position.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/chess.ts",
+    "sourceLocation": {
+      "filePath": "src/types/chess.ts",
+      "line": 14,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/index.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  }
+]

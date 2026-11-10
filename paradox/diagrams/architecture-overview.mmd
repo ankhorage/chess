@@ -4,7 +4,101 @@ graph TD
   package__ankhorage_chess --> entrypoint_src_index_ts
   module_paradox_config_ts["paradox.config.ts"]
   package__ankhorage_chess -.-> module_paradox_config_ts
+  module_src_features_chess_domain_applyUnchecked_ts["src/features/chess/domain/applyUnchecked.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_applyUnchecked_ts
+  module_src_features_chess_domain_applyUnchecked_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_chess_test_ts["src/features/chess/domain/chess.test.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_chess_test_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_features_chess_domain_choiceCoinSetup_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_features_chess_domain_getLegalMoves_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_features_chess_domain_isKingInCheck_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_features_chess_domain_playMove_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_features_chess_domain_readOutcome_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_features_chess_domain_resignGame_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_features_chess_domain_startGame_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_features_templates_domain_createFreeChoiceCoinPreset_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_features_templates_domain_createPresets_ts
+  module_src_features_chess_domain_chess_test_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_choiceCoinSetup_test_ts["src/features/chess/domain/choiceCoinSetup.test.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_choiceCoinSetup_test_ts
+  module_src_features_chess_domain_choiceCoinSetup_test_ts --> module_src_features_chess_domain_choiceCoinSetup_ts
+  module_src_features_chess_domain_choiceCoinSetup_test_ts --> module_src_features_chess_domain_startGame_ts
+  module_src_features_chess_domain_choiceCoinSetup_test_ts --> module_src_features_templates_domain_createPresets_ts
+  module_src_features_chess_domain_choiceCoinSetup_ts["src/features/chess/domain/choiceCoinSetup.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_choiceCoinSetup_ts
+  module_src_features_chess_domain_choiceCoinSetup_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_createChessEngine_ts["src/features/chess/domain/createChessEngine.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_createChessEngine_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_chess_domain_choiceCoinSetup_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_chess_domain_getCheckedKingPositions_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_chess_domain_getLegalMoves_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_chess_domain_isKingInCheck_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_chess_domain_playMove_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_chess_domain_readOutcome_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_chess_domain_resignGame_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_chess_domain_startGame_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_chess_domain_stateSignature_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_templates_domain_createFreeChoiceCoinPreset_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_features_templates_domain_createPresets_ts
+  module_src_features_chess_domain_createChessEngine_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_getCheckedKingPositions_ts["src/features/chess/domain/getCheckedKingPositions.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_getCheckedKingPositions_ts
+  module_src_features_chess_domain_getCheckedKingPositions_ts --> module_src_features_chess_domain_isSquareAttacked_ts
+  module_src_features_chess_domain_getCheckedKingPositions_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_getLegalMoves_ts["src/features/chess/domain/getLegalMoves.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_getLegalMoves_ts
+  module_src_features_chess_domain_getLegalMoves_ts --> module_src_features_chess_domain_applyUnchecked_ts
+  module_src_features_chess_domain_getLegalMoves_ts --> module_src_features_chess_domain_isKingInCheck_ts
+  module_src_features_chess_domain_getLegalMoves_ts --> module_src_features_chess_domain_isSquareAttacked_ts
+  module_src_features_chess_domain_getLegalMoves_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_isChoiceCoinSetupReady_ts["src/features/chess/domain/isChoiceCoinSetupReady.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_isChoiceCoinSetupReady_ts
+  module_src_features_chess_domain_isChoiceCoinSetupReady_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_isKingInCheck_ts["src/features/chess/domain/isKingInCheck.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_isKingInCheck_ts
+  module_src_features_chess_domain_isKingInCheck_ts --> module_src_features_chess_domain_isSquareAttacked_ts
+  module_src_features_chess_domain_isKingInCheck_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_isSquareAttacked_ts["src/features/chess/domain/isSquareAttacked.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_isSquareAttacked_ts
+  module_src_features_chess_domain_isSquareAttacked_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_playMove_ts["src/features/chess/domain/playMove.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_playMove_ts
+  module_src_features_chess_domain_playMove_ts --> module_src_features_chess_domain_applyUnchecked_ts
+  module_src_features_chess_domain_playMove_ts --> module_src_features_chess_domain_getLegalMoves_ts
+  module_src_features_chess_domain_playMove_ts --> module_src_features_chess_domain_stateSignature_ts
+  module_src_features_chess_domain_playMove_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_readOutcome_ts["src/features/chess/domain/readOutcome.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_readOutcome_ts
+  module_src_features_chess_domain_readOutcome_ts --> module_src_features_chess_domain_getLegalMoves_ts
+  module_src_features_chess_domain_readOutcome_ts --> module_src_features_chess_domain_isKingInCheck_ts
+  module_src_features_chess_domain_readOutcome_ts --> module_src_features_chess_domain_stateSignature_ts
+  module_src_features_chess_domain_readOutcome_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_resignGame_ts["src/features/chess/domain/resignGame.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_resignGame_ts
+  module_src_features_chess_domain_resignGame_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_startGame_ts["src/features/chess/domain/startGame.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_startGame_ts
+  module_src_features_chess_domain_startGame_ts --> module_src_features_chess_domain_isChoiceCoinSetupReady_ts
+  module_src_features_chess_domain_startGame_ts --> module_src_features_chess_domain_stateSignature_ts
+  module_src_features_chess_domain_startGame_ts --> module_src_types_chess_ts
+  module_src_features_chess_domain_stateSignature_ts["src/features/chess/domain/stateSignature.ts"]
+  package__ankhorage_chess -.-> module_src_features_chess_domain_stateSignature_ts
+  module_src_features_chess_domain_stateSignature_ts --> module_src_types_chess_ts
+  module_src_features_templates_domain_createFreeChoiceCoinPreset_ts["src/features/templates/domain/createFreeChoiceCoinPreset.ts"]
+  package__ankhorage_chess -.-> module_src_features_templates_domain_createFreeChoiceCoinPreset_ts
+  module_src_features_templates_domain_createFreeChoiceCoinPreset_ts --> module_src_features_templates_domain_createRankedTemplate_ts
+  module_src_features_templates_domain_createFreeChoiceCoinPreset_ts --> module_src_types_chess_ts
+  module_src_features_templates_domain_createPresets_ts["src/features/templates/domain/createPresets.ts"]
+  package__ankhorage_chess -.-> module_src_features_templates_domain_createPresets_ts
+  module_src_features_templates_domain_createPresets_ts --> module_src_features_templates_domain_createFreeChoiceCoinPreset_ts
+  module_src_features_templates_domain_createPresets_ts --> module_src_features_templates_domain_createRankedTemplate_ts
+  module_src_features_templates_domain_createPresets_ts --> module_src_types_chess_ts
+  module_src_features_templates_domain_createRankedTemplate_ts["src/features/templates/domain/createRankedTemplate.ts"]
+  package__ankhorage_chess -.-> module_src_features_templates_domain_createRankedTemplate_ts
+  module_src_features_templates_domain_createRankedTemplate_ts --> module_src_types_chess_ts
   module_src_index_ts["src/index.ts"]
+  module_src_types_chess_ts["src/types/chess.ts"]
+  package__ankhorage_chess -.-> module_src_types_chess_ts
   module_test_package_test_ts["test/package.test.ts"]
   package__ankhorage_chess -.-> module_test_package_test_ts
   module_test_package_test_ts --> module_src_index_ts

@@ -1,4 +1,62 @@
 graph LR
   module_paradox_config_ts["paradox.config.ts"]
+  module_src_features_chess_domain_applyUnchecked_ts["src/features/chess/domain/applyUnchecked.ts"]
+  module_src_features_chess_domain_chess_test_ts["src/features/chess/domain/chess.test.ts"]
+  module_src_features_chess_domain_choiceCoinSetup_test_ts["src/features/chess/domain/choiceCoinSetup.test.ts"]
+  module_src_features_chess_domain_choiceCoinSetup_ts["src/features/chess/domain/choiceCoinSetup.ts"]
+  module_src_features_chess_domain_createChessEngine_ts["src/features/chess/domain/createChessEngine.ts"]
+  module_src_features_chess_domain_getCheckedKingPositions_ts["src/features/chess/domain/getCheckedKingPositions.ts"]
+  module_src_features_chess_domain_getLegalMoves_ts["src/features/chess/domain/getLegalMoves.ts"]
+  module_src_features_chess_domain_isChoiceCoinSetupReady_ts["src/features/chess/domain/isChoiceCoinSetupReady.ts"]
+  module_src_features_chess_domain_isKingInCheck_ts["src/features/chess/domain/isKingInCheck.ts"]
+  module_src_features_chess_domain_isSquareAttacked_ts["src/features/chess/domain/isSquareAttacked.ts"]
+  module_src_features_chess_domain_playMove_ts["src/features/chess/domain/playMove.ts"]
+  module_src_features_chess_domain_readOutcome_ts["src/features/chess/domain/readOutcome.ts"]
+  module_src_features_chess_domain_resignGame_ts["src/features/chess/domain/resignGame.ts"]
+  module_src_features_chess_domain_startGame_ts["src/features/chess/domain/startGame.ts"]
+  module_src_features_chess_domain_stateSignature_ts["src/features/chess/domain/stateSignature.ts"]
+  module_src_features_templates_domain_createFreeChoiceCoinPreset_ts["src/features/templates/domain/createFreeChoiceCoinPreset.ts"]
+  module_src_features_templates_domain_createPresets_ts["src/features/templates/domain/createPresets.ts"]
+  module_src_features_templates_domain_createRankedTemplate_ts["src/features/templates/domain/createRankedTemplate.ts"]
   module_src_index_ts["src/index.ts"]
+  module_src_types_chess_ts["src/types/chess.ts"]
   module_test_package_test_ts["test/package.test.ts"]
+  export_Board["Board"]
+  module_src_types_chess_ts --> export_Board
+  export_Castling["Castling"]
+  module_src_types_chess_ts --> export_Castling
+  export_Cell["Cell"]
+  module_src_types_chess_ts --> export_Cell
+  export_ChessEngine["ChessEngine"]
+  module_src_types_chess_ts --> export_ChessEngine
+  export_ChoiceCoin["ChoiceCoin"]
+  module_src_types_chess_ts --> export_ChoiceCoin
+  export_ChoiceCoinSetup["ChoiceCoinSetup"]
+  module_src_types_chess_ts --> export_ChoiceCoinSetup
+  export_Color["Color"]
+  module_src_types_chess_ts --> export_Color
+  export_createChessEngine["createChessEngine"]
+  module_src_features_chess_domain_createChessEngine_ts --> export_createChessEngine
+  export_createChessEngine -.-> export_Board
+  export_createChessEngine -.-> export_ChoiceCoinSetup
+  export_createChessEngine -.-> export_Color
+  export_createChessEngine -.-> export_GameState
+  export_createChessEngine -.-> export_Move
+  export_createChessEngine -.-> export_PieceKind
+  export_createChessEngine -.-> export_Position
+  export_createChessEngine -.-> export_Result
+  export_createChessEngine -.-> export_Template
+  export_GameState["GameState"]
+  module_src_types_chess_ts --> export_GameState
+  export_Move["Move"]
+  module_src_types_chess_ts --> export_Move
+  export_Piece["Piece"]
+  module_src_types_chess_ts --> export_Piece
+  export_PieceKind["PieceKind"]
+  module_src_types_chess_ts --> export_PieceKind
+  export_Position["Position"]
+  module_src_types_chess_ts --> export_Position
+  export_Result["Result"]
+  module_src_types_chess_ts --> export_Result
+  export_Template["Template"]
+  module_src_types_chess_ts --> export_Template
