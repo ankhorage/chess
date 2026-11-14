@@ -14,9 +14,7 @@
     "Does not provide multiplayer transport or persistence.",
     "Does not require a framework or hosting provider."
   ],
-  "audience": [
-    "Application authors building configurable chess experiences."
-  ],
+  "audience": ["Application authors building configurable chess experiences."],
   "useCases": [
     "Validate and apply chess moves through a headless engine.",
     "Model configurable chess boards and game states."
@@ -29,8 +27,6 @@
     ]
   },
   "constraints": {
-    "limitations": [
-      "UI, persistence, and network play are outside the engine."
-    ]
+    "limitations": ["UI, persistence, and network play are outside the engine."]
   }
 }
