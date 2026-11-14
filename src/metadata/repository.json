@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "kind": "library",
+  "title": "Ankhorage Chess",
+  "summary": "Provides a framework-independent headless rules engine for configurable chess boards.",
+  "purpose": "Give applications reusable chess rules and state transitions without coupling game logic to rendering or a framework.",
+  "domain": "configurable chess rules",
+  "responsibilities": [
+    "Define configurable chess-board and game-state types.",
+    "Create a headless chess engine for legal moves and game results."
+  ],
+  "boundaries": [
+    "Does not render a chess board or own a user interface.",
+    "Does not provide multiplayer transport or persistence.",
+    "Does not require a framework or hosting provider."
+  ],
+  "audience": ["Application authors building configurable chess experiences."],
+  "useCases": [
+    "Validate and apply chess moves through a headless engine.",
+    "Model configurable chess boards and game states."
+  ],
+  "architecture": {
+    "role": "Framework-independent headless chess rules engine.",
+    "invariants": [
+      "Rules and state transitions remain independent of rendering and transport.",
+      "Consumers own persistence and multiplayer coordination."
+    ]
+  },
+  "constraints": {
+    "limitations": ["UI, persistence, and network play are outside the engine."]
+  }
+}
