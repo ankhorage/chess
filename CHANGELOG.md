@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2
+
+### Patch Changes
+
+- f0e49ae: Synchronize managed workflows through the current published Devtools API.
+
 ## 0.1.1
 
 ### Patch Changes
